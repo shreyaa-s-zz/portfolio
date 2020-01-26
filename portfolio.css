@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css?family=Satisfy&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Solway&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Bitter&display=swap");
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: wheat;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.body {
+  width: 100%;
+  height: 100%;
+}
+@media screen and (max-width: 650px) {
+  .container {
+    grid-template-rows: 1fr 1fr !important;
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.title {
+  padding-left: 50px;
+  font-family: "Bitter", serif;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  height: auto;
+  width: auto;
+  padding: 30px;
+}
+
+.profilepicture {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: auto;
+  height: 350px;
+  width: auto;
+}
+
+@keyframes backgroundchange {
+  0% {
+    background-image: url("index.jpeg");
+  }
+  33% {
+    background-image: url("icon.png");
+  }
+  66% {
+    background-image: url("images.png");
+  }
+  100% {
+    background-image: url("index.jpeg");
+  }
+}
+
+.picture {
+  border: 2px solid rgba(00, 00, 00, 0.6);
+  box-shadow: 0px 2px 2px 2px rgba(00, 00, 00, 0.4);
+  height: 300px;
+  width: 300px;
+  align-self: center;
+  animation-name: backgroundchange;
+  animation-duration: 8s;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation-iteration-count: infinite;
+}
+
+.userdetails {
+  padding-left: 20px;
+  font-family: Solway;
+  align-self: center;
+  height: auto;
+  width: auto;
+}
