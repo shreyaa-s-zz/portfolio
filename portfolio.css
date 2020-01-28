@@ -5,45 +5,170 @@
 body {
   margin: 0px;
   padding: 0px;
-  background-color: wheat;
+  background-image: url("geometricBackground.jpg");
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  color: blanchedalmond;
+}
+#body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
 ::-webkit-scrollbar {
   display: none;
 }
 
-.body {
-  width: 100%;
-  height: 100%;
+header {
+  font-size: 50px;
+  color: blanchedalmond;
+  font-family: Bitter;
+  text-align: left;
+  padding-top: 20px;
 }
-@media screen and (max-width: 650px) {
-  .container {
-    grid-template-rows: 1fr 1fr !important;
-    grid-template-columns: 1fr !important;
+
+.sidenav {
+  position: relative;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  transition: 0.5s;
+  padding-top: 60px;
+  background-color: gray;
+  color: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #f1f1f1;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+  background-color: black;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px !important;
+  }
+  .sidenav a {
+    font-size: 18px !important;
   }
 }
 
-.title {
-  padding-left: 50px;
-  font-family: "Bitter", serif;
+/* Active/current link */
+.sideNav a.active {
+  background-color: black;
+  color: white;
 }
 
-.container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
+/* Links on mouse-over */
+.sideNav a:hover:not(.active) {
+  color: white;
+}
+
+/* Page content. The value of the margin-left property should match the value of the sideNav's width property */
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+/* On screens that are less than 700px wide, make the sideNav into a topbar */
+@media screen and (max-width: 700px) {
+  .sideNav {
+    width: 100% !important;
+    height: auto !important;
+    position: relative !important;
+  }
+  .sideNav a {
+    float: left !important;
+  }
+  div.content {
+    margin-left: 0 !important;
+  }
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+  .sideNav a {
+    text-align: center !important;
+    float: none !important;
+  }
+}
+
+#sideNavOpen {
+  font-size: 30px;
+  color: #f1f1f1;
+  cursor: pointer;
+  padding-left: 20px;
+  padding-top: 30px;
+}
+
+#title {
+  font-family: "Solway", serif;
+  color: white;
+  font-size: 30px;
+  text-decoration-line: underline;
+}
+
+#container {
+  position: fixed;
   height: auto;
-  width: auto;
+  width: 75%;
   padding: 30px;
+  margin-left: 25%;
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: 100px;
+  grid-template-areas:
+    "a a b"
+    "c c c"
+    "c c c"
+    "c c c"
+    "c c c";
+  align-items: start;
 }
 
-.profilepicture {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-self: auto;
-  height: 350px;
-  width: auto;
+#a {
+  grid-area: a;
+}
+
+#b {
+  grid-area: b;
+}
+
+#profilePicture {
+  height: 150px;
+  width: 150px;
+  border-radius: 100px;
 }
 
 @keyframes backgroundchange {
@@ -81,3 +206,8 @@ body {
   height: auto;
   width: auto;
 }
+ #personalDetails {
+   grid-area: c;
+   font-size: 30px;
+   font-family: Satisfy;
+ }

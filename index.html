@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Portfolio: Shreya
+    </title>
+    <link rel="stylesheet" href="portfolio.css" />
+    <script type="text/javascript" src="../JS/jquery-3.4.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="body">
+      <span id="sideNavOpen" onclick="openNav(); autoupdate();">&#9776; </span>
+      <div id="sideNav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+          >&times;
+        </a>
+        <a href="#personalDetails">Personal Details</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#aboutMe">About Me</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div id="container">
+          <div id="a">
+              <header>
+            Shreya Sharma
+          </header>
+        </div>
+        <div id="b">
+            <img id="profilePicture" src="sample.jpg">
+        </div>               
+        <div id="personalDetails">
+          <a name="personalDetails"></a>
+          <div>
+            <div id="title">Personal Details</div>
+            <div><br>
+                 Age: 18 </br></br>
+                 Education: </br>
+                  <ul>
+                    <li>
+                      College: Indian Institute of Technology Roorkee
+                    </li>
+                    <li>
+                      School: St. Thomas School, Indirapuram
+                    </li>
+                  </ul>
+                 Interests:
+                  <ul>
+                    <li>
+                      Web Development
+                    </li>
+                    <li>
+                      Competitive Programming
+                    </li>
+                  </ul>
+            </div>              
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function openNav() {
+        document.getElementById("sideNav").style.width = "25%";
+      }
+      function closeNav() {
+        document.getElementById("sideNav").style.width = "0";
+      }
+
+      function autoupdate() {
+        $("sideNav").animate({ width: "0" }, 3000);
+      }
+    </script>
+  </body>
+</html>
