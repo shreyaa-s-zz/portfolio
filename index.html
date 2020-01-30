@@ -15,27 +15,37 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
           >&times;
         </a>
-        <a href="#personalDetails">Personal Details</a>
+        <a href="#personal-details">Personal Details</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#aboutMe">About Me</a>
-        <a href="#contact">Contact</a>
       </div>
-      <div id="container">
-          <div id="a">
-              <header>
-            Shreya Sharma
-          </header>
-        </div>
-        <div id="b">
-            <img id="profilePicture" src="sample.jpg">
-        </div>               
-        <div id="personalDetails">
-          <a name="personalDetails"></a>
+      <div id="wrapper">
+        <div id="intro-box">
           <div>
-            <div id="title">Personal Details</div>
-            <div><br>
-                 Age: 18 </br></br>
+            <img src="profile.jpg" id="picture-small">
+          </div>
+          <div id="name-small">
+            Shreya <br> Sharma
+          </div>
+        </div>
+        <div id="intro-container">
+          <div id="intro-sub-container">
+            <div id="name">
+              Hey, I'm Shreya! <br />
+              Welcome to my Portfolio.
+            </div>
+            <div id="profile-picture">
+              <img id="profilePicture" src="profile.jpg" />
+            </div>
+          </div>
+        </div>
+        <div class="personal-details container">
+          <a name="personal-details"></a>
+          <div>
+            <div class="title">Personal Details</div>
+            <div></br>
+                 Age: 18 </br>
                  Education: </br>
                   <ul>
                     <li>
@@ -59,17 +69,57 @@
         </div>
       </div>
     </div>
+
     <script>
       function openNav() {
         document.getElementById("sideNav").style.width = "25%";
-      }
-      function closeNav() {
-        document.getElementById("sideNav").style.width = "0";
+        document.getElementById("wrapper").style.width = "75%";
+        document.getElementById("wrapper").style.marginLeft = "25%";
+        document.getElementById("sideNavOpen").style.visibility = "hidden";
+        document.getElementById("profilePicture").style.height = "300px";
+        document.getElementById("profilePicture").style.width = "300px";
+        document.getElementById("profilePicture").style.borderRadius = "150px";
       }
 
-      function autoupdate() {
+      function closeNav() {
+        document.getElementById("sideNav").style.width = "0";
+        document.getElementById("wrapper").style.width = "100%";
+        document.getElementById("wrapper").style.marginLeft = "0";
+        document.getElementById("sideNavOpen").style.visibility = "visible";
+        document.getElementById("profilePicture").style.height = "400px";
+        document.getElementById("profilePicture").style.width = "400px";
+        document.getElementById("profilePicture").style.borderRadius = "200px";
+      }
+
+      /*function autoupdate() {
         $("sideNav").animate({ width: "0" }, 3000);
       }
+
+      jQuery(function($) {
+        // Function which adds the 'animated' class to any '.animatable' in view
+        var doAnimations = function() {
+          // Calc current offset and get all animatables
+          var offset = $(window).scrollTop() + $(window).height(),
+            $animatables = $(".animatable");
+
+          // Unbind scroll handler if we have no animatables
+          if ($animatables.length == 0) {
+            $(window).off("scroll", doAnimations);
+          }
+
+          // Check all animatables and animate them if necessary
+          $animatables.each(function(i) {
+            var $animatable = $(this);
+            if ($animatable.offset().top + $animatable.height() - 20 < offset) {
+              $animatable.removeClass("animatable").addClass("animated");
+            }
+          });
+        };
+
+        // Hook doAnimations on scroll, and trigger a scroll
+        $(window).on("scroll", doAnimations);
+        $(window).trigger("scroll");
+      }); */
     </script>
   </body>
 </html>

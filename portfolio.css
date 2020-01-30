@@ -3,24 +3,21 @@
 @import url("https://fonts.googleapis.com/css?family=Bitter&display=swap");
 
 body {
+  position: absolute;
   margin: 0px;
-  padding: 0px;
-  background-image: url("geometricBackground.jpg");
+  background-image: url("blackBackground.jpg");
   background-repeat: no-repeat;
-  height: 100vh;
-  width: 100vw;
-  color: blanchedalmond;
+  background-size: cover;
+  padding-top: 30px;
+  height: 100%;
+  width: 100%;
+  background-attachment: fixed;
 }
 #body {
-  position: absolute;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: row;
 }
-
-::-webkit-scrollbar {
-  display: none;
+@media screen and (max-width: 700px) {
 }
 
 header {
@@ -31,65 +28,51 @@ header {
   padding-top: 20px;
 }
 
-.sidenav {
-  position: relative;
-  height: 100%;
+#sideNav {
+  height: 100vh;
   width: 0;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
-  overflow: auto;
+  overflow: hidden;
   transition: 0.5s;
-  padding-top: 60px;
-  background-color: gray;
-  color: #f1f1f1;
+  background-color:gray;
+  color:white;
+  text-decoration: solid;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   text-align: center;
+  opacity: 0.6;
 }
 
-.sidenav a {
+#sideNav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #f1f1f1;
   display: block;
   transition: 0.3s;
 }
 
-.sidenav a:hover {
-  color: #f1f1f1;
-  background-color: black;
+#sideNav a:hover {
+  background-color: wheat;
 }
 
-.sidenav .closebtn {
+#sideNav .closebtn {
   position: absolute;
   top: 0;
-  right: 25px;
   font-size: 36px;
-  margin-left: 50px;
+  align-self: center;
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {
+  #sideNav {
     padding-top: 15px !important;
   }
-  .sidenav a {
+  #sideNav a {
     font-size: 18px !important;
   }
-}
-
-/* Active/current link */
-.sideNav a.active {
-  background-color: black;
-  color: white;
-}
-
-/* Links on mouse-over */
-.sideNav a:hover:not(.active) {
-  color: white;
 }
 
 /* Page content. The value of the margin-left property should match the value of the sideNav's width property */
@@ -101,12 +84,17 @@ div.content {
 
 /* On screens that are less than 700px wide, make the sideNav into a topbar */
 @media screen and (max-width: 700px) {
-  .sideNav {
+  #container {
+    margin-left: 0px !important;
+    margin-top: 300px;
     width: 100% !important;
-    height: auto !important;
-    position: relative !important;
+    height: auto;
   }
-  .sideNav a {
+  #sideNav {
+    width: 100% !important;
+    height: 300px !important;
+  }
+  #sideNav a {
     float: left !important;
   }
   div.content {
@@ -116,98 +104,162 @@ div.content {
 
 /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
 @media screen and (max-width: 400px) {
-  .sideNav a {
+  #sideNav a {
     text-align: center !important;
     float: none !important;
   }
 }
 
 #sideNavOpen {
+  position: fixed;
   font-size: 30px;
-  color: #f1f1f1;
+  color: white;
   cursor: pointer;
-  padding-left: 20px;
   padding-top: 30px;
+  padding-left: 20px;
 }
 
-#title {
+.title {
   font-family: "Solway", serif;
   color: white;
-  font-size: 30px;
+  font-size: 50px;
   text-decoration-line: underline;
+  width: auto;
 }
 
-#container {
-  position: fixed;
-  height: auto;
-  width: 75%;
-  padding: 30px;
-  margin-left: 25%;
+.container {
+  height: 500px;
+  width: auto;
+  padding-top: 20px;
   color: white;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: 100px;
+  grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
-    "a a b"
-    "c c c"
-    "c c c"
-    "c c c"
-    "c c c";
+    "d e e f";
   align-items: start;
 }
 
-#a {
-  grid-area: a;
+.personal-details {
+  grid-area: e;
+  font-size: 20px;
+  font-family: Satisfy;
 }
 
-#b {
+#intro-container {
+  color: white;
+  font-family: Bitter;
+  font-size: 50px;
+  text-align: center;
+  align-self: center;
+  height: 500px;
+}
+
+#intro-sub-container {
+  display: grid;
+  grid-template-columns: (3, 1fr);
+  grid-template-areas:
+    "a b b";
+  align-items: start;
+}
+
+#name {
   grid-area: b;
 }
 
+#profile-picture {
+  grid-area: a;
+}
 #profilePicture {
-  height: 150px;
-  width: 150px;
-  border-radius: 100px;
+  height: 400px;
+  width: 400px;
+  border-radius: 200px;
 }
 
-@keyframes backgroundchange {
+#intro-box {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  grid-area: f ;
+}
+
+#picture-small {
+  height: 80px;
+  width: 80px;
+  border-radius: 40px;
+}
+
+#name-small {
+  font-family: Solway;
+  font-size: 30px;
+  color: white;
+}
+
+
+.block {
+  height: 5em;
+  line-height: 5em;
+  width: 10em;
+  color: #fdfdfd;
+  text-align: center;
+  margin: 1em auto;
+  text-shadow: 0 0 1px #333; /* so one can see fadeBgColor properly */
+}
+
+.animatable {
+  /* initially hide animatable objects */
+  visibility: hidden;
+
+  /* initially pause animatable objects their animations */
+  -webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  -ms-animation-play-state: paused;
+  -o-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+/* show objects being animated */
+.animated {
+  visibility: visible;
+
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -ms-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+
+  -webkit-animation-play-state: running;
+  -moz-animation-play-state: running;
+  -ms-animation-play-state: running;
+  -o-animation-play-state: running;
+  animation-play-state: running;
+}
+@-webkit-keyframes fadeInUp {
   0% {
-    background-image: url("index.jpeg");
-  }
-  33% {
-    background-image: url("icon.png");
-  }
-  66% {
-    background-image: url("images.png");
+    opacity: 0;
+    -webkit-transform: translateY(20px);
   }
   100% {
-    background-image: url("index.jpeg");
+    opacity: 1;
+    -webkit-transform: translateY(0);
   }
 }
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
 
-.picture {
-  border: 2px solid rgba(00, 00, 00, 0.6);
-  box-shadow: 0px 2px 2px 2px rgba(00, 00, 00, 0.4);
-  height: 300px;
-  width: 300px;
-  align-self: center;
-  animation-name: backgroundchange;
-  animation-duration: 8s;
-  background-repeat: no-repeat;
-  background-size: cover;
-  animation-iteration-count: infinite;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
-.userdetails {
-  padding-left: 20px;
-  font-family: Solway;
-  align-self: center;
-  height: auto;
-  width: auto;
-}
- #personalDetails {
-   grid-area: c;
-   font-size: 30px;
-   font-family: Satisfy;
- }
