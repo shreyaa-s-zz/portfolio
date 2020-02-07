@@ -10,15 +10,15 @@
   </head>
   <body>
     <div id="body">
-      <span id="sideNavOpen" onclick="openNav(); autoupdate();">&#9776; </span>
+      <span id="sideNavOpen">&#9776; </span>
       <div id="sideNav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
           >&times;
         </a>
-        <a href="#personal-details">Personal Details</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#aboutMe">About Me</a>
+        <a href="#personal-details" class="link">Personal Details</a>
+        <a href="#experience" class="link">Experience</a>
+        <a href="#skills" class="link">Skills</a>
+        <a href="#about-me" class="link">About Me</a>
       </div>
       <div id="wrapper">
         <div id="intro-box">
@@ -31,16 +31,17 @@
         </div>
         <div id="intro-container">
           <div id="intro-sub-container">
+            <div id="profile-picture">
+              <img id="profilePicture" src="profile.jpg" />
+            </div>
             <div id="name">
               Hey, I'm Shreya! <br />
               Welcome to my Portfolio.
             </div>
-            <div id="profile-picture">
-              <img id="profilePicture" src="profile.jpg" />
-            </div>
           </div>
         </div>
-        <div class="personal-details container">
+        <div class="container">
+        <div class="personal-details">
           <a name="personal-details"></a>
           <div>
             <div class="title">Personal Details</div>
@@ -68,17 +69,63 @@
           </div>
         </div>
       </div>
+      <div class="container">
+        <div class="skills">
+          <a name="skills"></a>
+          <div>
+              <div class="title">Skills</div>
+              <div><br>
+                  <ul> 
+                      <li> C++ </li>
+                      <li> HTML</li>
+                      <li> CSS</li>
+                      <li> PHP </li>
+                      <li> JavaScript </li>
+                      <li> MySQL </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      </div>
+        
+          <div class="container">
+            <div class="about-me">
+              <a name="about-me"></a>
+              <div class="title">About Me</div> <br>
+        <p>
+        The world of open source has fascinated me for a long time. An
+        unquenchable thirst for knowledge has aspired me to join SDSLabs where I
+        wish to explore all their is in the Development world. Other than an
+        adaptable learner, i like to categorise myself as an avid reader and an
+        enthusiastic storyteller. </p>
+            </div>
+          </div>
+            
+    </div>
     </div>
 
     <script>
-      function openNav() {
-        document.getElementById("sideNav").style.width = "25%";
-        document.getElementById("wrapper").style.width = "75%";
-        document.getElementById("wrapper").style.marginLeft = "25%";
+      window.onscroll = function() {myFunction()};
+
+function myFunction() {
+  if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+    document.getElementById("intro-box").style.visibility="visible";
+  } else {
+    document.getElementById("intro-box").style.visibility = "hidden";
+  }
+}
+
+      $("#sideNavOpen").hover(function(event){
+        document.getElementById("sideNav").style.width = "18%";
+        document.getElementById("wrapper").style.width = "82%";
+        document.getElementById("wrapper").style.marginLeft = "18%";
         document.getElementById("sideNavOpen").style.visibility = "hidden";
         document.getElementById("profilePicture").style.height = "300px";
         document.getElementById("profilePicture").style.width = "300px";
         document.getElementById("profilePicture").style.borderRadius = "150px";
+      })
+      function openNav() {
+        
       }
 
       function closeNav() {

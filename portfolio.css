@@ -17,8 +17,6 @@ body {
   width: 100%;
   height: 100%;
 }
-@media screen and (max-width: 700px) {
-}
 
 header {
   font-size: 50px;
@@ -29,6 +27,7 @@ header {
 }
 
 #sideNav {
+  grid-area: d;
   height: 100vh;
   width: 0;
   position: fixed;
@@ -37,14 +36,19 @@ header {
   left: 0;
   overflow: hidden;
   transition: 0.5s;
-  background-color:gray;
-  color:white;
+  background-color:black;
+  color: white;
   text-decoration: solid;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  text-align: center;
-  opacity: 0.6;
+  align-content: center;
+  justify-content: start;
+  opacity: 0.8;
+}
+
+.link {
+  color: white;
+  text-decoration: solid;
 }
 
 #sideNav a {
@@ -57,13 +61,16 @@ header {
 
 #sideNav a:hover {
   background-color: wheat;
+  color: black;
+  font-size: 30px;
 }
 
 #sideNav .closebtn {
+  color: white;
   position: absolute;
   top: 0;
   font-size: 36px;
-  align-self: center;
+  align-self: flex-end;
 }
 
 @media screen and (max-height: 450px) {
@@ -83,16 +90,61 @@ div.content {
 }
 
 /* On screens that are less than 700px wide, make the sideNav into a topbar */
-@media screen and (max-width: 700px) {
-  #container {
-    margin-left: 0px !important;
-    margin-top: 300px;
-    width: 100% !important;
-    height: auto;
+@media only screen and (max-width: 700px) {
+  #intro-sub-container {
+    align-self: center;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  #profile-picture {
+    align-self: center !important;
+    padding-left: 10px;
+  }
+  #profilePicture {
+    height: 300px !important;
+    width: 300px !important;
+    border-radius: 150px !important;
+  }
+  #sideNavOpen {
+    display: none !important;
+  }
+  .closebtn {
+    display: none !important;
+  }
+  .container {
+    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-areas: "g g h" !important; 
+    justify-content: center;
+  }
+  .personal-details {
+    padding-left: 10px;
+    text-align: center;
+    align-self: center;
+    grid-area: g !important;
+  }
+  .skills {
+    padding-left: 10px;
+    text-align: center;
+    align-self: center;
+    grid-area: g !important;
+  }
+  .about-me {
+    padding-left: 10px;
+    text-align: center;
+    align-self: center;
+    grid-area: g !important;
+  }
+  #intro-box {
+    grid-area: h !important;
   }
   #sideNav {
+    top: 0;
+    background-color: black;
+    flex-direction: row !important;
+    position: fixed;
     width: 100% !important;
-    height: 300px !important;
+    height: auto !important;
   }
   #sideNav a {
     float: left !important;
@@ -115,33 +167,42 @@ div.content {
   font-size: 30px;
   color: white;
   cursor: pointer;
-  padding-top: 30px;
+  padding-top: 20px;
   padding-left: 20px;
 }
 
 .title {
   font-family: "Solway", serif;
   color: white;
-  font-size: 50px;
+  font-size: 45px;
   text-decoration-line: underline;
   width: auto;
 }
 
 .container {
-  height: 500px;
+  height: 600px;
   width: auto;
   padding-top: 20px;
   color: white;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-areas:
-    "d e e f";
+  grid-template-areas: "d e e f";
   align-items: start;
 }
 
 .personal-details {
   grid-area: e;
-  font-size: 20px;
+  font-size: 30px;
+  font-family: Satisfy;
+}
+.skills {
+  grid-area: e;
+  font-size: 30px;
+  font-family: Satisfy;
+}
+.about-me {
+  grid-area: e;
+  font-size: 30px;
   font-family: Satisfy;
 }
 
@@ -149,25 +210,28 @@ div.content {
   color: white;
   font-family: Bitter;
   font-size: 50px;
-  text-align: center;
-  align-self: center;
-  height: 500px;
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 #intro-sub-container {
+  padding-left: 10px;
   display: grid;
   grid-template-columns: (3, 1fr);
-  grid-template-areas:
-    "a b b";
-  align-items: start;
+  grid-template-areas: "a b b";
+  grid-gap: 10px;
 }
 
 #name {
   grid-area: b;
+  align-self: center;
 }
 
 #profile-picture {
   grid-area: a;
+  align-self: center;
 }
 #profilePicture {
   height: 400px;
@@ -177,12 +241,13 @@ div.content {
 
 #intro-box {
   position: fixed;
-  top: 10px;
+  top: 60px;
   right: 10px;
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: center;
-  grid-area: f ;
+  grid-area: f;
+  visibility: hidden;
 }
 
 #picture-small {
@@ -196,7 +261,6 @@ div.content {
   font-size: 30px;
   color: white;
 }
-
 
 .block {
   height: 5em;
