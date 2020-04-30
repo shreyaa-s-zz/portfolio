@@ -5,13 +5,14 @@
 body {
   position: absolute;
   margin: 0px;
-  background-image: url("blackBackground.jpg");
+  background-image: url("—Pngtree—design\ background\ of\ person\ working_1157920.png");
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 30px;
   height: 100%;
   width: 100%;
   background-attachment: fixed;
+  opacity: 0.8;
 }
 #body {
   width: 100%;
@@ -185,8 +186,8 @@ div.content {
   padding-top: 20px;
   color: white;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-areas: "d e e f";
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas: "d f e e e";
   align-items: start;
 }
 
